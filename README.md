@@ -562,11 +562,6 @@ Don't worry. Someone should help you with solving your problems.
 
 If you speak Spanish (Español), check out this tutorial: [ReactiveNetwork - Como funciona y como se integra en una app](https://www.youtube.com/watch?v=H7xGmQaKPsI) made by [Video Tutorials Android](https://www.youtube.com/channel/UC2q5P9JVoA6N8mE622gRP7w).
 
-## Caveats
-
-Since version **0.4.0**, functionality releated to **observing WiFi Access Points** and **WiFi signal strength (level)** is removed in favor of [ReactiveWiFi](https://github.com/pwittchen/ReactiveWiFi) library.
-If you want to use this functionality, check [**ReactiveWiFi**](https://github.com/pwittchen/ReactiveWiFi) project.
-
 ## Changelog
 
 See [CHANGELOG.md](https://github.com/pwittchen/ReactiveNetwork/blob/RxJava2.x/CHANGELOG.md) file.
