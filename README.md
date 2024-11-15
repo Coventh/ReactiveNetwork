@@ -6,13 +6,12 @@ view website with documentation: [RxJava1.x](http://pwittchen.github.io/Reactive
 
 ReactiveNetwork is an Android library listening **network connection state** and **Internet connectivity** with RxJava Observables. It's a successor of [Network Events](https://github.com/pwittchen/NetworkEvents) library rewritten with Reactive Programming approach. Library supports both new and legacy network monitoring strategies. Min sdk version = 9.
 
-| Current Branch | Branch  | Artifact Id | Build Status  | Coverage | Maven Central |
-|:--------------:|:-------:|:-----------:|:-------------:|:--------:|:-------------:|
-| | [`RxJava1.x`](https://github.com/pwittchen/ReactiveNetwork/tree/RxJava1.x) | `reactivenetwork` | [![Build Status for RxJava1.x](https://img.shields.io/travis/pwittchen/ReactiveNetwork/RxJava1.x.svg?style=flat-square)](https://travis-ci.org/pwittchen/ReactiveNetwork) | [![codecov](https://img.shields.io/codecov/c/github/pwittchen/ReactiveNetwork/RxJava1.x.svg?style=flat-square&label=coverage)](https://codecov.io/gh/pwittchen/ReactiveNetwork/branch/RxJava1.x) | ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/reactivenetwork.svg?style=flat-square) |
+|     Current Branch      |                                   Branch                                   |      Artifact Id      |                                                                               Build Status                                                                                |                                                                                             Coverage                                                                                             |                                                      Maven Central                                                      |
+| :---------------------: | :------------------------------------------------------------------------: | :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: |
+|                         | [`RxJava1.x`](https://github.com/pwittchen/ReactiveNetwork/tree/RxJava1.x) |   `reactivenetwork`   | [![Build Status for RxJava1.x](https://img.shields.io/travis/pwittchen/ReactiveNetwork/RxJava1.x.svg?style=flat-square)](https://travis-ci.org/pwittchen/ReactiveNetwork) | [![codecov](https://img.shields.io/codecov/c/github/pwittchen/ReactiveNetwork/RxJava1.x.svg?style=flat-square&label=coverage)](https://codecov.io/gh/pwittchen/ReactiveNetwork/branch/RxJava1.x) |   ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/reactivenetwork.svg?style=flat-square)   |
 | :ballot_box_with_check: | [`RxJava2.x`](https://github.com/pwittchen/ReactiveNetwork/tree/RxJava2.x) | `reactivenetwork-rx2` | [![Build Status for RxJava2.x](https://img.shields.io/travis/pwittchen/ReactiveNetwork/RxJava2.x.svg?style=flat-square)](https://travis-ci.org/pwittchen/ReactiveNetwork) | [![codecov](https://img.shields.io/codecov/c/github/pwittchen/ReactiveNetwork/RxJava2.x.svg?style=flat-square&label=coverage)](https://codecov.io/gh/pwittchen/ReactiveNetwork/branch/RxJava2.x) | ![Maven Central](https://img.shields.io/maven-central/v/com.github.pwittchen/reactivenetwork-rx2.svg?style=flat-square) |
 
-Contents
---------
+## Contents
 
 - [Usage](#usage)
   - [Observing network connectivity](#observing-network-connectivity)
@@ -26,8 +25,8 @@ Contents
   - [Chaining network and Internet connectivity streams](#chaining-network-and-internet-connectivity-streams)
   - [ClearText traffic](#cleartext-traffic)
 - [Integration with other libraries](#integration-with-other-libraries)
-    - [Integration with OkHttp](#integration-with-okhttp)
-    - [Integration with Retrofit](#integration-with-retrofit)
+  - [Integration with OkHttp](#integration-with-okhttp)
+  - [Integration with Retrofit](#integration-with-retrofit)
   - [ProGuard configuration](#proguard-configuration)
 - [Examples](#examples)
 - [Download](#download)
@@ -48,8 +47,7 @@ Contents
 - [Supporters](#supporters)
 - [License](#license)
 
-Usage
------
+## Usage
 
 **Please note**: Due to memory leak in `WifiManager` reported
 in [issue 43945](https://code.google.com/p/android/issues/detail?id=43945) in Android issue tracker
@@ -102,7 +100,7 @@ ReactiveNetwork
 ```
 
 `observeNetworkConnectivity(context)` checks only connectivity with the network (not Internet) as it's based on `BroadcastReceiver` for API 20 and lower and uses `NetworkCallback` for API 21 and higher.
- Concrete WiFi or mobile network may be connected to the Internet (and usually is), but it doesn't have to.
+Concrete WiFi or mobile network may be connected to the Internet (and usually is), but it doesn't have to.
 
 You can also use method:
 
@@ -140,6 +138,7 @@ class Builder
 #### Network Observing Strategies
 
 Right now, we have the following strategies for different Android versions:
+
 - `LollipopNetworkObservingStrategy`
 - `MarshmallowNetworkObservingStrategy`
 - `PreLollipopNetworkObservingStrategy`
@@ -253,7 +252,8 @@ For more details check JavaDoc at: http://pwittchen.github.io/ReactiveNetwork/ja
 #### Internet Observing Strategies
 
 Right now, we have the following strategies for observing Internet connectivity:
-- `SocketInternetObservingStrategy` -  monitors Internet connectivity via opening socket connection with the remote host
+
+- `SocketInternetObservingStrategy` - monitors Internet connectivity via opening socket connection with the remote host
 - `WalledGardenInternetObservingStrategy` - opens connection with a remote host and respects countries in the Walled Garden (e.g. China)
 
 All of these strategies implements `NetworkObservingStrategy` interface. Default strategy used right now is `WalledGardenInternetObservingStrategy`,
@@ -466,15 +466,13 @@ For more details regarding Retrofit, please visit its official website: http://s
 -dontwarn sun.misc.Unsafe
 ```
 
-Examples
---------
+## Examples
 
 Exemplary application is located in `app` directory of this repository.
 
 If you want to know, how to use this library with Kotlin, check `app-kotlin` directory.
 
-Download
---------
+## Download
 
 You can depend on the library through Maven:
 
@@ -498,8 +496,7 @@ dependencies {
 
 **Note #2**: If you are using Gradle version lower than 3.0, replace `implementation` with `compile`
 
-Tests
------
+## Tests
 
 Tests are available in `library/src/test/java/` directory and can be executed on JVM without any emulator or Android device from Android Studio or CLI with the following command:
 
@@ -513,26 +510,24 @@ To generate test coverage report, run the following command:
 ./gradlew test jacocoTestReport
 ```
 
-Code style
-----------
+## Code style
 
 Code style used in the project is called `SquareAndroid` from Java Code Styles repository by Square available at: https://github.com/square/java-code-styles.
 
-Static code analysis
---------------------
+## Static code analysis
 
 Static code analysis runs Checkstyle, PMD, Lint, ErrorProne and NullAway. It can be executed with command:
 
- ```
- ./gradlew check
- ```
+```
+./gradlew check
+```
 
 Reports from analysis are generated in `library/build/reports/` directory.
 
-Who is using this library?
---------------------------
+## Who is using this library?
 
 These apps are using (or used) ReactiveNetwork library:
+
 - [SkyScanner Android app](https://play.google.com/store/apps/details?id=net.skyscanner.android.main)
 - [Slack Android app](https://play.google.com/store/apps/details?id=com.Slack)
 - [NextBike](https://play.google.com/store/apps/details?id=de.nextbike)
@@ -552,12 +547,12 @@ These apps are using (or used) ReactiveNetwork library:
 
 Are you using this library in your app and want to be listed here? Send me a Pull Request or an e-mail to piotr@wittchen.io
 
-Getting help
-------------
+## Getting help
 
 Do you need help related to using or configuring this library?
 
 You can do the following things:
+
 - [Ask the question on StackOverflow](http://stackoverflow.com/questions/ask?tags=reactivenetwork)
 - [Create new GitHub issue](https://github.com/pwittchen/ReactiveNetwork/issues/new)
 
@@ -567,19 +562,16 @@ Don't worry. Someone should help you with solving your problems.
 
 If you speak Spanish (Español), check out this tutorial: [ReactiveNetwork - Como funciona y como se integra en una app](https://www.youtube.com/watch?v=H7xGmQaKPsI) made by [Video Tutorials Android](https://www.youtube.com/channel/UC2q5P9JVoA6N8mE622gRP7w).
 
-Caveats
--------
+## Caveats
 
 Since version **0.4.0**, functionality releated to **observing WiFi Access Points** and **WiFi signal strength (level)** is removed in favor of [ReactiveWiFi](https://github.com/pwittchen/ReactiveWiFi) library.
 If you want to use this functionality, check [**ReactiveWiFi**](https://github.com/pwittchen/ReactiveWiFi) project.
 
-Changelog
----------
+## Changelog
 
 See [CHANGELOG.md](https://github.com/pwittchen/ReactiveNetwork/blob/RxJava2.x/CHANGELOG.md) file.
 
-JavaDoc
--------
+## JavaDoc
 
 JavaDoc is available at: http://pwittchen.github.io/ReactiveNetwork/javadoc/RxJava2.x
 
@@ -597,8 +589,7 @@ In order to update JavaDoc on GitHub pages, use the following bash script:
 
 Then commit and push your changes to `gh-pages` branch.
 
-Documentation
---------------------------
+## Documentation
 
 view website with documentation: [RxJava1.x](http://pwittchen.github.io/ReactiveNetwork/docs/RxJava1.x/), [**RxJava2.x**](http://pwittchen.github.io/ReactiveNetwork/docs/RxJava2.x/)
 
@@ -629,14 +620,11 @@ Right now it's already generated, so we can just update the `README.md` file and
 
 Next, we can just save changes, commit and push them to remote repository.
 
-
-Releasing
----------
+## Releasing
 
 See [RELEASING.md](https://github.com/pwittchen/ReactiveNetwork/blob/RxJava2.x/RELEASING.md) file.
 
-Contributors
-------------
+## Contributors
 
 - [Piotr Wittchen](https://github.com/pwittchen) - project lead
 - [Tushar Acharya](https://github.com/tushar-acharya)
@@ -651,8 +639,8 @@ Contributors
 - [Vishesh Vadhera](https://github.com/VisheshVadhera)
 - [@ychescale9](https://github.com/ychescale9)
 
-References
-----------
+## References
+
 - [Android Documentation - Detect network changes, then change app behavior](https://developer.android.com/develop/quality-guidelines/building-for-billions-connectivity.html#network-behavior)
 - [Android Documentation - Provide onboarding experiences for users' network choices](https://developer.android.com/develop/quality-guidelines/building-for-billions-data-cost.html#configurablenetwork-onboarding)
 - [Android Documentation - Managing Network Usage](https://developer.android.com/training/basics/network-ops/managing.html)
@@ -661,6 +649,7 @@ References
 - [RxJava](https://github.com/ReactiveX/RxJava)
 
 ### Mentions
+
 - [Android Weekly #166](http://androidweekly.net/issues/issue-166)
 - [Android Weekly #289](http://androidweekly.net/issues/issue-289)
 - [Android Weekly China #44](http://www.androidweekly.cn/android-dev-weekly-issue44/)
@@ -668,27 +657,3 @@ References
 - [GitHub Trending, 14th of Aug 2015](https://twitter.com/TrendingGithub/status/632117206801891328)
 - [TL DEV TECH - Best Android Libraries in 2017](http://www.tldevtech.com/best-android-libraries-2017/)
 - [TL DEV TECH - 30+ Best Android Libraries (2018)](https://www.tldevtech.com/best-android-libraries/)
-
-Supporters
-----------
-
-Thanks for [JetBrains](https://www.jetbrains.com/?from=ReactiveNetwork) for sponsoring IntelliJ IDEA license for open-source development
-
-[![jetbrains logos](https://raw.githubusercontent.com/pwittchen/ReactiveNetwork/RxJava2.x/jetbrains_logo.png)](https://www.jetbrains.com/?from=ReactiveNetwork)
-
-License
--------
-
-    Copyright 2016 Piotr Wittchen
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
